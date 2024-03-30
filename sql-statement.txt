@@ -1,0 +1,14 @@
+SELECT 
+    m.nama_mahasiswa,
+    mk.nama_matakuliah,
+    n.nilai,
+    CASE 
+        WHEN n.nilai > 70 THEN 'Lulus'
+        ELSE 'Tidak Lulus'
+    END AS ket_lulus
+FROM 
+    nilai n
+JOIN 
+    mahasiswa m ON n.id_mahasiswa = m.id_mahasiswa
+JOIN 
+    matakuliah mk ON n.id_matakuliah = mk.id_matakuliah;
